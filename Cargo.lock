@@ -256,19 +256,29 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "3.1.8"
+version = "3.2.21"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "71c47df61d9e16dc010b55dba1952a57d8c215dbb533fd13cdd13369aac73b1c"
+checksum = "1ed5341b2301a26ab80be5cbdced622e80ed808483c52e45e3310a877d3b37d7"
+dependencies = [
+ "bitflags",
+ "clap_lex 0.2.4",
+ "indexmap",
+ "textwrap 0.15.0",
+]
+
+[[package]]
+name = "clap"
+version = "4.0.14"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6ea54a38e4bce14ff6931c72e5b3c43da7051df056913d4e7e1fcdb1c03df69d"
 dependencies = [
  "atty",
  "bitflags",
- "indexmap",
- "lazy_static",
- "os_str_bytes",
+ "clap_lex 0.3.0",
+ "once_cell",
  "strsim 0.10.0",
  "termcolor",
- "terminal_size",
- "textwrap 0.15.0",
+ "terminal_size 0.2.1",
 ]
 
 [[package]]
@@ -277,7 +287,25 @@ version = "3.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "df6f3613c0a3cddfd78b41b10203eb322cb29b600cbdf808a7d3db95691b8e25"
 dependencies = [
- "clap 3.1.8",
+ "clap 3.2.21",
+]
+
+[[package]]
+name = "clap_lex"
+version = "0.2.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2850f2f5a82cbf437dd5af4d49848fbdfc27c157c3d010345776f952765261c5"
+dependencies = [
+ "os_str_bytes",
+]
+
+[[package]]
+name = "clap_lex"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0d4198f73e42b4936b35b5bb248d81d2b595ecb170da0bac7655c54eedfa8da8"
+dependencies = [
+ "os_str_bytes",
 ]
 
 [[package]]
@@ -307,7 +335,7 @@ version = "0.0.13"
 dependencies = [
  "atty",
  "chrono",
- "clap 3.1.8",
+ "clap 4.0.14",
  "clap_complete",
  "conv",
  "filetime",
@@ -763,6 +791,27 @@ dependencies = [
 ]
 
 [[package]]
+name = "errno"
+version = "0.2.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f639046355ee4f37944e44f60642c6f3a7efa3cf6b78c78a0d989a8ce6c396a1"
+dependencies = [
+ "errno-dragonfly",
+ "libc",
+ "winapi 0.3.9",
+]
+
+[[package]]
+name = "errno-dragonfly"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "aa68f1b12764fab894d2755d2518754e71b4fd80ecfb822714a1206c2aab39bf"
+dependencies = [
+ "cc",
+ "libc",
+]
+
+[[package]]
 name = "exacl"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -965,6 +1014,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "io-lifetimes"
+version = "0.7.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1ea37f355c05dde75b84bba2d767906ad522e97cd9e2eef2be7a4ab7fb442c06"
+
+[[package]]
 name = "ioctl-sys"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1009,9 +1064,9 @@ checksum = "830d08ce1d1d941e6b30645f1a0eb5643013d835ce3779a5fc208261dbe10f55"
 
 [[package]]
 name = "libc"
-version = "0.2.121"
+version = "0.2.135"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "efaa7b300f3b5fe8eb6bf21ce3895e1751d9665086af2d64b42f19701015ff4f"
+checksum = "68783febc7782c6c5cb401fbda4de5a9898be1762314da0bb2c10ced61f18b0c"
 
 [[package]]
 name = "libloading"
@@ -1022,6 +1077,12 @@ dependencies = [
  "cfg-if 1.0.0",
  "winapi 0.3.9",
 ]
+
+[[package]]
+name = "linux-raw-sys"
+version = "0.0.46"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d4d2456c373231a208ad294c33dc5bff30051eafd954cd4caae83a712b12854d"
 
 [[package]]
 name = "lock_api"
@@ -1223,9 +1284,9 @@ checksum = "b8f8bdf33df195859076e54ab11ee78a1b208382d3a26ec40d142ffc1ecc49ef"
 
 [[package]]
 name = "once_cell"
-version = "1.10.0"
+version = "1.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "87f3e037eac156d1775da914196f0f37741a274155e34a0b7e427c35d2a2ecb9"
+checksum = "e82dad04139b71a90c080c8463fe0dc7902db5192d939bd0950f074d014339e1"
 
 [[package]]
 name = "onig"
@@ -1273,9 +1334,6 @@ name = "os_str_bytes"
 version = "6.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8e22443d1643a904602595ba1cd8f7d896afe56d26712531c5ff73a15b2fbf64"
-dependencies = [
- "memchr 2.4.1",
-]
 
 [[package]]
 name = "ouroboros"
@@ -1330,7 +1388,7 @@ dependencies = [
  "libc",
  "redox_syscall",
  "smallvec",
- "windows-sys",
+ "windows-sys 0.32.0",
 ]
 
 [[package]]
@@ -1647,6 +1705,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "08d43f7aa6b08d49f382cde6a7982047c3426db949b1424bc4b7ec9ae12c6ce2"
 
 [[package]]
+name = "rustix"
+version = "0.35.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fbb2fda4666def1433b1b05431ab402e42a1084285477222b72d6c564c417cef"
+dependencies = [
+ "bitflags",
+ "errno",
+ "io-lifetimes",
+ "libc",
+ "linux-raw-sys",
+ "windows-sys 0.36.1",
+]
+
+[[package]]
 name = "rustversion"
 version = "1.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1886,6 +1958,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "terminal_size"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8440c860cf79def6164e4a0a983bcc2305d82419177a0e0c71930d049e3ac5a1"
+dependencies = [
+ "rustix",
+ "windows-sys 0.36.1",
+]
+
+[[package]]
 name = "termion"
 version = "1.5.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1926,7 +2008,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b1141d4d61095b28419e22cb0bbf02755f5e54e0526f97f1e3d1d160e60885fb"
 dependencies = [
  "smawk",
- "terminal_size",
+ "terminal_size 0.1.17",
  "unicode-linebreak",
  "unicode-width",
 ]
@@ -2042,7 +2124,7 @@ checksum = "7cf7d77f457ef8dfa11e4cd5933c5ddb5dc52a94664071951219a97710f0a32b"
 name = "uu_arch"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "platform-info",
  "uucore",
 ]
@@ -2051,7 +2133,7 @@ dependencies = [
 name = "uu_base32"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2067,7 +2149,7 @@ dependencies = [
 name = "uu_basename"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2075,7 +2157,7 @@ dependencies = [
 name = "uu_basenc"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uu_base32",
  "uucore",
 ]
@@ -2085,7 +2167,7 @@ name = "uu_cat"
 version = "0.0.13"
 dependencies = [
  "atty",
- "clap 3.1.8",
+ "clap 4.0.14",
  "nix",
  "thiserror",
  "unix_socket",
@@ -2096,7 +2178,7 @@ dependencies = [
 name = "uu_chcon"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "fts-sys",
  "libc",
  "selinux",
@@ -2108,7 +2190,7 @@ dependencies = [
 name = "uu_chgrp"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2116,7 +2198,7 @@ dependencies = [
 name = "uu_chmod"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
 ]
@@ -2125,7 +2207,7 @@ dependencies = [
 name = "uu_chown"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2133,7 +2215,7 @@ dependencies = [
 name = "uu_chroot"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2141,7 +2223,7 @@ dependencies = [
 name = "uu_cksum"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2149,7 +2231,7 @@ dependencies = [
 name = "uu_comm"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2157,7 +2239,7 @@ dependencies = [
 name = "uu_cp"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "exacl",
  "filetime",
  "ioctl-sys",
@@ -2174,7 +2256,7 @@ dependencies = [
 name = "uu_csplit"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "regex",
  "thiserror",
  "uucore",
@@ -2186,7 +2268,7 @@ version = "0.0.13"
 dependencies = [
  "atty",
  "bstr",
- "clap 3.1.8",
+ "clap 4.0.14",
  "memchr 2.4.1",
  "uucore",
 ]
@@ -2196,7 +2278,7 @@ name = "uu_date"
 version = "0.0.13"
 dependencies = [
  "chrono",
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
  "winapi 0.3.9",
@@ -2207,7 +2289,7 @@ name = "uu_dd"
 version = "0.0.13"
 dependencies = [
  "byte-unit",
- "clap 3.1.8",
+ "clap 4.0.14",
  "gcd",
  "libc",
  "signal-hook",
@@ -2218,7 +2300,7 @@ dependencies = [
 name = "uu_df"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "number_prefix",
  "unicode-width",
  "uucore",
@@ -2228,7 +2310,7 @@ dependencies = [
 name = "uu_dir"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "selinux",
  "uu_ls",
  "uucore",
@@ -2238,7 +2320,7 @@ dependencies = [
 name = "uu_dircolors"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "glob",
  "uucore",
 ]
@@ -2247,7 +2329,7 @@ dependencies = [
 name = "uu_dirname"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2256,7 +2338,7 @@ name = "uu_du"
 version = "0.0.13"
 dependencies = [
  "chrono",
- "clap 3.1.8",
+ "clap 4.0.14",
  "glob",
  "uucore",
  "winapi 0.3.9",
@@ -2266,7 +2348,7 @@ dependencies = [
 name = "uu_echo"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2274,7 +2356,7 @@ dependencies = [
 name = "uu_env"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "rust-ini",
  "uucore",
 ]
@@ -2283,7 +2365,7 @@ dependencies = [
 name = "uu_expand"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "unicode-width",
  "uucore",
 ]
@@ -2292,7 +2374,7 @@ dependencies = [
 name = "uu_expr"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "num-bigint",
  "num-traits",
  "onig",
@@ -2303,7 +2385,7 @@ dependencies = [
 name = "uu_factor"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "coz",
  "num-traits",
  "paste",
@@ -2317,7 +2399,7 @@ dependencies = [
 name = "uu_false"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2325,7 +2407,7 @@ dependencies = [
 name = "uu_fmt"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "unicode-width",
  "uucore",
 ]
@@ -2334,7 +2416,7 @@ dependencies = [
 name = "uu_fold"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2342,7 +2424,7 @@ dependencies = [
 name = "uu_groups"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2352,7 +2434,7 @@ version = "0.0.13"
 dependencies = [
  "blake2b_simd",
  "blake3",
- "clap 3.1.8",
+ "clap 4.0.14",
  "digest",
  "hex",
  "md-5",
@@ -2368,7 +2450,7 @@ dependencies = [
 name = "uu_head"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "memchr 2.4.1",
  "uucore",
 ]
@@ -2377,7 +2459,7 @@ dependencies = [
 name = "uu_hostid"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
 ]
@@ -2386,7 +2468,7 @@ dependencies = [
 name = "uu_hostname"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "hostname",
  "uucore",
  "winapi 0.3.9",
@@ -2396,7 +2478,7 @@ dependencies = [
 name = "uu_id"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "selinux",
  "uucore",
 ]
@@ -2405,7 +2487,7 @@ dependencies = [
 name = "uu_install"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "file_diff",
  "filetime",
  "libc",
@@ -2416,7 +2498,7 @@ dependencies = [
 name = "uu_join"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "memchr 2.4.1",
  "uucore",
 ]
@@ -2425,7 +2507,7 @@ dependencies = [
 name = "uu_kill"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
 ]
@@ -2434,7 +2516,7 @@ dependencies = [
 name = "uu_link"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2442,7 +2524,7 @@ dependencies = [
 name = "uu_ln"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2450,7 +2532,7 @@ dependencies = [
 name = "uu_logname"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
 ]
@@ -2461,7 +2543,7 @@ version = "0.0.13"
 dependencies = [
  "atty",
  "chrono",
- "clap 3.1.8",
+ "clap 4.0.14",
  "glob",
  "lazy_static",
  "lscolors",
@@ -2478,7 +2560,7 @@ dependencies = [
 name = "uu_mkdir"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2486,7 +2568,7 @@ dependencies = [
 name = "uu_mkfifo"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
 ]
@@ -2495,7 +2577,7 @@ dependencies = [
 name = "uu_mknod"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
 ]
@@ -2504,7 +2586,7 @@ dependencies = [
 name = "uu_mktemp"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "rand",
  "tempfile",
  "uucore",
@@ -2515,7 +2597,7 @@ name = "uu_more"
 version = "0.0.13"
 dependencies = [
  "atty",
- "clap 3.1.8",
+ "clap 4.0.14",
  "crossterm",
  "nix",
  "unicode-segmentation",
@@ -2527,7 +2609,7 @@ dependencies = [
 name = "uu_mv"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "fs_extra",
  "uucore",
 ]
@@ -2536,7 +2618,7 @@ dependencies = [
 name = "uu_nice"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "nix",
  "uucore",
@@ -2546,7 +2628,7 @@ dependencies = [
 name = "uu_nl"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "regex",
  "uucore",
 ]
@@ -2556,7 +2638,7 @@ name = "uu_nohup"
 version = "0.0.13"
 dependencies = [
  "atty",
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
 ]
@@ -2565,7 +2647,7 @@ dependencies = [
 name = "uu_nproc"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "num_cpus",
  "uucore",
@@ -2575,7 +2657,7 @@ dependencies = [
 name = "uu_numfmt"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2584,7 +2666,7 @@ name = "uu_od"
 version = "0.0.13"
 dependencies = [
  "byteorder",
- "clap 3.1.8",
+ "clap 4.0.14",
  "half",
  "uucore",
 ]
@@ -2593,7 +2675,7 @@ dependencies = [
 name = "uu_paste"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2601,7 +2683,7 @@ dependencies = [
 name = "uu_pathchk"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
 ]
@@ -2610,7 +2692,7 @@ dependencies = [
 name = "uu_pinky"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2619,7 +2701,7 @@ name = "uu_pr"
 version = "0.0.13"
 dependencies = [
  "chrono",
- "clap 3.1.8",
+ "clap 4.0.14",
  "itertools",
  "quick-error",
  "regex",
@@ -2630,7 +2712,7 @@ dependencies = [
 name = "uu_printenv"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2638,7 +2720,7 @@ dependencies = [
 name = "uu_printf"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2646,7 +2728,7 @@ dependencies = [
 name = "uu_ptx"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "regex",
  "uucore",
 ]
@@ -2655,7 +2737,7 @@ dependencies = [
 name = "uu_pwd"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2663,7 +2745,7 @@ dependencies = [
 name = "uu_readlink"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2671,7 +2753,7 @@ dependencies = [
 name = "uu_realpath"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2679,7 +2761,7 @@ dependencies = [
 name = "uu_relpath"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2687,7 +2769,7 @@ dependencies = [
 name = "uu_rm"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "remove_dir_all 0.7.0",
  "uucore",
  "walkdir",
@@ -2698,7 +2780,7 @@ dependencies = [
 name = "uu_rmdir"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
 ]
@@ -2707,7 +2789,7 @@ dependencies = [
 name = "uu_runcon"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "selinux",
  "thiserror",
@@ -2719,7 +2801,7 @@ name = "uu_seq"
 version = "0.0.13"
 dependencies = [
  "bigdecimal",
- "clap 3.1.8",
+ "clap 4.0.14",
  "num-bigint",
  "num-traits",
  "uucore",
@@ -2729,7 +2811,7 @@ dependencies = [
 name = "uu_shred"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "rand",
  "uucore",
 ]
@@ -2738,7 +2820,7 @@ dependencies = [
 name = "uu_shuf"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "rand",
  "rand_core",
  "uucore",
@@ -2748,7 +2830,7 @@ dependencies = [
 name = "uu_sleep"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2757,7 +2839,7 @@ name = "uu_sort"
 version = "0.0.13"
 dependencies = [
  "binary-heap-plus",
- "clap 3.1.8",
+ "clap 4.0.14",
  "compare",
  "ctrlc",
  "fnv",
@@ -2775,7 +2857,7 @@ dependencies = [
 name = "uu_split"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "memchr 2.4.1",
  "uucore",
 ]
@@ -2784,7 +2866,7 @@ dependencies = [
 name = "uu_stat"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2792,7 +2874,7 @@ dependencies = [
 name = "uu_stdbuf"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "tempfile",
  "uu_stdbuf_libstdbuf",
  "uucore",
@@ -2812,7 +2894,7 @@ dependencies = [
 name = "uu_sum"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2820,7 +2902,7 @@ dependencies = [
 name = "uu_sync"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
  "winapi 0.3.9",
@@ -2830,7 +2912,7 @@ dependencies = [
 name = "uu_tac"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "memchr 2.4.1",
  "memmap2",
  "regex",
@@ -2841,7 +2923,7 @@ dependencies = [
 name = "uu_tail"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "nix",
  "uucore",
@@ -2852,7 +2934,7 @@ dependencies = [
 name = "uu_tee"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "retain_mut",
  "uucore",
@@ -2862,7 +2944,7 @@ dependencies = [
 name = "uu_test"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "redox_syscall",
  "uucore",
@@ -2872,7 +2954,7 @@ dependencies = [
 name = "uu_timeout"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "nix",
  "uucore",
@@ -2882,7 +2964,7 @@ dependencies = [
 name = "uu_touch"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "filetime",
  "time",
  "uucore",
@@ -2893,7 +2975,7 @@ dependencies = [
 name = "uu_tr"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "nom",
  "uucore",
 ]
@@ -2902,7 +2984,7 @@ dependencies = [
 name = "uu_true"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2910,7 +2992,7 @@ dependencies = [
 name = "uu_truncate"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2918,7 +3000,7 @@ dependencies = [
 name = "uu_tsort"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2927,7 +3009,7 @@ name = "uu_tty"
 version = "0.0.13"
 dependencies = [
  "atty",
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
 ]
@@ -2936,7 +3018,7 @@ dependencies = [
 name = "uu_uname"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "platform-info",
  "uucore",
 ]
@@ -2945,7 +3027,7 @@ dependencies = [
 name = "uu_unexpand"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "unicode-width",
  "uucore",
 ]
@@ -2954,7 +3036,7 @@ dependencies = [
 name = "uu_uniq"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "strum",
  "strum_macros",
  "uucore",
@@ -2964,7 +3046,7 @@ dependencies = [
 name = "uu_unlink"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2973,7 +3055,7 @@ name = "uu_uptime"
 version = "0.0.13"
 dependencies = [
  "chrono",
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2981,7 +3063,7 @@ dependencies = [
 name = "uu_users"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -2989,7 +3071,7 @@ dependencies = [
 name = "uu_vdir"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "selinux",
  "uu_ls",
  "uucore",
@@ -3000,7 +3082,7 @@ name = "uu_wc"
 version = "0.0.13"
 dependencies = [
  "bytecount",
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "nix",
  "unicode-width",
@@ -3012,7 +3094,7 @@ dependencies = [
 name = "uu_who"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "uucore",
 ]
 
@@ -3020,7 +3102,7 @@ dependencies = [
 name = "uu_whoami"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "libc",
  "uucore",
  "winapi 0.3.9",
@@ -3030,7 +3112,7 @@ dependencies = [
 name = "uu_yes"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "nix",
  "uucore",
 ]
@@ -3039,7 +3121,7 @@ dependencies = [
 name = "uucore"
 version = "0.0.13"
 dependencies = [
- "clap 3.1.8",
+ "clap 4.0.14",
  "data-encoding",
  "data-encoding-macro",
  "dns-lookup",
@@ -3178,11 +3260,24 @@ version = "0.32.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3df6e476185f92a12c072be4a189a0210dcdcf512a1891d6dff9edb874deadc6"
 dependencies = [
- "windows_aarch64_msvc",
- "windows_i686_gnu",
- "windows_i686_msvc",
- "windows_x86_64_gnu",
- "windows_x86_64_msvc",
+ "windows_aarch64_msvc 0.32.0",
+ "windows_i686_gnu 0.32.0",
+ "windows_i686_msvc 0.32.0",
+ "windows_x86_64_gnu 0.32.0",
+ "windows_x86_64_msvc 0.32.0",
+]
+
+[[package]]
+name = "windows-sys"
+version = "0.36.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ea04155a16a59f9eab786fe12a4a450e75cdb175f9e0d80da1e17db09f55b8d2"
+dependencies = [
+ "windows_aarch64_msvc 0.36.1",
+ "windows_i686_gnu 0.36.1",
+ "windows_i686_msvc 0.36.1",
+ "windows_x86_64_gnu 0.36.1",
+ "windows_x86_64_msvc 0.36.1",
 ]
 
 [[package]]
@@ -3192,10 +3287,22 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d8e92753b1c443191654ec532f14c199742964a061be25d77d7a96f09db20bf5"
 
 [[package]]
+name = "windows_aarch64_msvc"
+version = "0.36.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9bb8c3fd39ade2d67e9874ac4f3db21f0d710bee00fe7cab16949ec184eeaa47"
+
+[[package]]
 name = "windows_i686_gnu"
 version = "0.32.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6a711c68811799e017b6038e0922cb27a5e2f43a2ddb609fe0b6f3eeda9de615"
+
+[[package]]
+name = "windows_i686_gnu"
+version = "0.36.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "180e6ccf01daf4c426b846dfc66db1fc518f074baa793aa7d9b9aaeffad6a3b6"
 
 [[package]]
 name = "windows_i686_msvc"
@@ -3204,16 +3311,34 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "146c11bb1a02615db74680b32a68e2d61f553cc24c4eb5b4ca10311740e44172"
 
 [[package]]
+name = "windows_i686_msvc"
+version = "0.36.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e2e7917148b2812d1eeafaeb22a97e4813dfa60a3f8f78ebe204bcc88f12f024"
+
+[[package]]
 name = "windows_x86_64_gnu"
 version = "0.32.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c912b12f7454c6620635bbff3450962753834be2a594819bd5e945af18ec64bc"
 
 [[package]]
+name = "windows_x86_64_gnu"
+version = "0.36.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4dcd171b8776c41b97521e5da127a2d86ad280114807d0b2ab1e462bc764d9e1"
+
+[[package]]
 name = "windows_x86_64_msvc"
 version = "0.32.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "504a2476202769977a040c6364301a3f65d0cc9e3fb08600b2bda150a0488316"
+
+[[package]]
+name = "windows_x86_64_msvc"
+version = "0.36.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c811ca4a8c853ef420abd8592ba53ddbbac90410fab6903b3e79972a631f7680"
 
 [[package]]
 name = "xattr"
